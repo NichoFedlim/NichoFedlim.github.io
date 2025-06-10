@@ -2,8 +2,8 @@
 Welcome to my personal GitHub Pages site! This repository contains various HTML projects and resources I've been working on. Below are the links to the HTML files hosted in this repository.
 
 ## Projects
-1. To-Do List
-2. Calculator
+1. To-Do List [Link](https://nichofedlim.github.io/To-Do%20List/index.html)
+2. Simple Calculator [Link](https://nichofedlim.github.io/calculator)
 3. HTML CSS
 4. HTML JavaScript
 5. HTML Part 1
