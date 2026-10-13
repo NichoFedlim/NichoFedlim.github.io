@@ -5,6 +5,7 @@
   const saved = localStorage.getItem('theme');
   const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
   const theme = saved || (prefersLight ? 'light' : 'dark');
+  // const theme = saved || 'dark';
   document.documentElement.setAttribute('data-theme', theme);
 })();
 
