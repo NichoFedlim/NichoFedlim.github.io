@@ -1,4 +1,14 @@
 /* =========================================================
+   Theme toggle (applied before paint to avoid flash)
+   ========================================================= */
+(function initTheme() {
+  const saved = localStorage.getItem('theme');
+  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  const theme = saved || (prefersLight ? 'light' : 'dark');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+
+/* =========================================================
    Year in footer
    ========================================================= */
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -62,4 +72,23 @@ filters.forEach(btn => {
       p.classList.toggle('hidden', !show);
     });
   });
+});
+
+/* =========================================================
+   Theme toggle button
+   ========================================================= */
+const themeToggle = document.getElementById('themeToggle');
+
+themeToggle.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
+
+/* Follow OS preference changes (only if user hasn't manually chosen) */
+window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+  if (!localStorage.getItem('theme')) {
+    document.documentElement.setAttribute('data-theme', e.matches ? 'light' : 'dark');
+  }
 });

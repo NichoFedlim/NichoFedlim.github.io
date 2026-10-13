@@ -25,6 +25,16 @@
     <div class="nav-inner">
       <a href="#top" class="logo">NF</a>
 
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
+
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -43,18 +53,29 @@
   <!-- ===== Hero ===== -->
   <header id="top" class="hero">
     <div class="hero-inner">
+
+    <div class="hero-text">
       <p class="eyebrow">Hi, my name is</p>
       <h1>Nicholas Fedlim.</h1>
       <h2>I build things with code.</h2>
       <p class="hero-desc">
-        Data Science student at The University of Hong Kong with hands-on experience
-        in Python, C++, R, and front-end web development. I enjoy turning ideas
-        into working software — from game-tree AI to time-series forecasting.
+        Data Science student at The University of Hong Kong with hands-on
+        experience in Python, C++, R, and front-end web development. I enjoy
+        turning ideas into working software — from game-tree AI to time-series
+        forecasting.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="assets/Nicholas_Fedlim_CV.pdf" download>Download CV</a>
         <a class="btn btn-ghost" href="#projects">View Projects</a>
       </div>
+    </div>
+
+    <div class="hero-photo">
+      <div class="photo-frame">
+          <img src="assets/profile.jpeg" alt="Nicholas Fedlim" width="400" height="400" loading="eager" />
+      </div>
+    </div>
+
     </div>
 
     <div class="hero-scroll">
@@ -96,9 +117,10 @@
         <aside class="about-card">
           <h3>Quick Facts</h3>
           <ul>
-            <li><span class="icon">📍</span> Hong Kong</li>
+            <li><span class="icon">📍</span> Study in Hong Kong</li>
+            <li><span class="icon">🌱</span> Born & Raised in Indonesia</li>
             <li><span class="icon">🎓</span> HKU — Data Science</li>
-            <li><span class="icon">💻</span> Python · C++ · R · JS</li>
+            <li><span class="icon">💻</span> Python · C++ · R · JavaScript</li>
             <li><span class="icon">📧</span> <a href="mailto:nicholasfedlim@gmail.com">nicholasfedlim@gmail.com</a></li>
           </ul>
         </aside>
@@ -240,22 +262,97 @@
 
     <!-- ===== Experience ===== -->
     <section id="experience" class="section reveal">
-      <h2 class="section-title"><span>04.</span> Education &amp; Experience</h2>
+    <h2 class="section-title"><span>04.</span> Experience</h2>
 
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>The University of Hong Kong</h3>
-            <p class="timeline-meta">Bachelor of Engineering — Data Science · 2023 – 2027</p>
-            <p>
-              Relevant coursework in data structures, algorithms, probability,
-              statistics, and machine learning. Active in group software projects
-              spanning games, simulations, and data analysis.
-            </p>
-          </div>
+    <div class="experience-layout">
+
+        <!-- LEFT: Education -->
+        <div class="experience-col">
+        <h3 class="experience-heading">Education</h3>
+        <div class="timeline">
+
+            <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-head">
+                <h4>The University of Hong Kong</h4>
+                <span class="timeline-date">2024 — 2028</span>
+                </div>
+                <p class="timeline-meta">B.Eng. in Data Science and Engineering</p>
+                <p class="timeline-meta">- Double major in Finance</p>
+                <p>
+                Coursework in data structures, algorithms, probability, statistics,
+                and machine learning. Active in group software projects spanning
+                games, simulations, and data analysis.
+                </p>
+                <div class="tags small">
+                <span>Python</span><span>C++</span><span>R</span><span>Algorithms</span>
+                </div>
+            </div>
+            </div>
+
+            <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-head">
+                <h4>Relevant Coursework</h4>
+                </div>
+                <ul class="coursework">
+                <li>Data Structures &amp; Algorithms</li>
+                <li>Probability &amp; Statistics</li>
+                <li>Machine Learning</li>
+                <li>Object-Oriented Programming</li>
+                </ul>
+            </div>
+            </div>
+
         </div>
-      </div>
+        </div>
+
+        <!-- RIGHT: Experience -->
+        <div class="experience-col">
+        <h3 class="experience-heading">Experience</h3>
+        <div class="timeline">
+
+            <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-head">
+                <h4>Software / Data Projects</h4>
+                <span class="timeline-date">2024 — Present</span>
+                </div>
+                <p class="timeline-meta">Self-directed &amp; Group Projects</p>
+                <p>
+                Built terminal games, data analyses, and web projects. Highlights:
+                a game-tree AI for a 4×4 rotating board game, a 60 FPS C++ game
+                stage, and an ARIMA forecasting study of Hong Kong's job market.
+                </p>
+                <div class="tags small">
+                <span>Git</span><span>Linux</span><span>Tableau</span>
+                </div>
+            </div>
+            </div>
+
+            <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-head">
+                <h4>Open to Internships</h4>
+                <span class="timeline-date">2025+</span>
+                </div>
+                <p class="timeline-meta">Software · Data · ML</p>
+                <p>
+                Looking for internships in software engineering, data science,
+                or machine learning. Feel free to reach out.
+                </p>
+                <a class="project-link" href="mailto:nicholasfedlim@gmail.com">Get in touch →</a>
+            </div>
+            </div>
+
+        </div>
+        </div>
+
+    </div>
     </section>
 
     <!-- ===== Contact ===== -->
