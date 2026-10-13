@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nicholas Fedlim — Portfolio</title>
+  <meta name="description" content="Nicholas Fedlim — Data Science student at The University of Hong Kong. Python, C++, R, and front-end web development." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nicholas Fedlim — Portfolio" />
+  <meta property="og:description" content="Data Science student at HKU building things with code." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nichofedlim.github.io" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>N</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== Nav ===== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="logo">NF</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about"><span class="num">01.</span> About</a></li>
+        <li><a href="#skills"><span class="num">02.</span> Skills</a></li>
+        <li><a href="#projects"><span class="num">03.</span> Projects</a></li>
+        <li><a href="#experience"><span class="num">04.</span> Experience</a></li>
+        <li><a href="#contact"><span class="num">05.</span> Contact</a></li>
+        <li><a class="nav-cta" href="assets/Nicholas_Fedlim_CV.pdf" download>Resume</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <header id="top" class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Hi, my name is</p>
+      <h1>Nicholas Fedlim.</h1>
+      <h2>I build things with code.</h2>
+      <p class="hero-desc">
+        Data Science student at The University of Hong Kong with hands-on experience
+        in Python, C++, R, and front-end web development. I enjoy turning ideas
+        into working software — from game-tree AI to time-series forecasting.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="assets/Nicholas_Fedlim_CV.pdf" download>Download CV</a>
+        <a class="btn btn-ghost" href="#projects">View Projects</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <a href="#about" aria-label="Scroll to about">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== About ===== -->
+    <section id="about" class="section reveal">
+      <h2 class="section-title"><span>01.</span> About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm a student at <strong>The University of Hong Kong</strong> with a passion
+            for building things — whether that's a terminal game with a game-tree AI,
+            a physics simulation in C++, or a data pipeline in R. I enjoy the full
+            stack of problem solving: from designing algorithms to shipping a clean UI.
+          </p>
+          <p>
+            Outside of coursework, I explore front-end web development and data
+            science, and I document my learning through the small projects hosted
+            on this site.
+          </p>
+          <p>Some things I've been working with recently:</p>
+          <ul class="about-list">
+            <li>Python · C++ · R</li>
+            <li>Data science &amp; statistical modeling</li>
+            <li>Game tree AI &amp; algorithms</li>
+            <li>Front-end web development</li>
+          </ul>
+        </div>
+
+        <aside class="about-card">
+          <h3>Quick Facts</h3>
+          <ul>
+            <li><span class="icon">📍</span> Hong Kong</li>
+            <li><span class="icon">🎓</span> HKU — Data Science</li>
+            <li><span class="icon">💻</span> Python · C++ · R · JS</li>
+            <li><span class="icon">📧</span> <a href="mailto:nicholasfedlim@gmail.com">nicholasfedlim@gmail.com</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section id="skills" class="section reveal">
+      <h2 class="section-title"><span>02.</span> Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <div class="tags">
+            <span>Python</span><span>C++</span><span>R</span>
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Libraries &amp; Frameworks</h3>
+          <div class="tags">
+            <span>ncurses</span><span>tidyverse</span><span>ggplot2</span>
+            <span>forecast</span><span>Makefile</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Tools</h3>
+          <div class="tags">
+            <span>RStudio</span><span>Git</span><span>GitHub</span>
+            <span>Tableau</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Concepts</h3>
+          <div class="tags">
+            <span>Game Tree AI</span><span>Collision Detection</span>
+            <span>Time-Series Forecasting</span><span>ARIMA</span><span>EDA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Projects ===== -->
+    <section id="projects" class="section reveal">
+      <h2 class="section-title"><span>03.</span> Projects</h2>
+
+      <!-- Filters -->
+      <div class="filters" role="tablist" aria-label="Project filters">
+        <button class="filter is-active" data-filter="all" role="tab">All</button>
+        <button class="filter" data-filter="game" role="tab">Games</button>
+        <button class="filter" data-filter="data" role="tab">Data</button>
+        <button class="filter" data-filter="web"  role="tab">Web</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="project" data-tags="game">
+          <div class="project-head">
+            <h3>Twist Tac Four</h3>
+            <span class="project-role">Python · Game Tree AI</span>
+          </div>
+          <p>
+            A strategic 4×4 board game with a rotating board mechanism and an AI
+            opponent driven by a game-tree search. Built the menu system, splash
+            screen, win-detection logic, and an "Infinite Mode" with adaptive
+            difficulty.
+          </p>
+          <div class="tags small">
+            <span>Python</span><span>Game Tree</span><span>AI</span>
+          </div>
+        </article>
+
+        <article class="project" data-tags="game">
+          <div class="project-head">
+            <h3>Engineer's Gambit</h3>
+            <span class="project-role">C++ · ncurses</span>
+          </div>
+          <p>
+            A five-stage terminal game transforming first-year engineering concepts
+            into interactive gameplay. Engineered the ENGG1320 "Coin Frenzy" stage
+            with floating-point collision detection, adaptive difficulty, and
+            randomized spawning. Optimized for 60 FPS on Linux.
+          </p>
+          <div class="tags small">
+            <span>C++</span><span>ncurses</span><span>Makefile</span>
+          </div>
+          <a class="project-link" href="https://github.com/NichoFedlim/engg1340-group-project" target="_blank" rel="noopener">View on GitHub →</a>
+        </article>
+
+        <article class="project" data-tags="data">
+          <div class="project-head">
+            <h3>Hong Kong Job Market Analysis</h3>
+            <span class="project-role">R · tidyverse · Tableau</span>
+          </div>
+          <p>
+            End-to-end analysis of HK's job market (2019–2024). Cleaned and
+            visualized unemployment, salary, and vacancy data; found a −0.93
+            correlation between unemployment and vacancies; forecasted median
+            earnings to 2030 with ARIMA.
+          </p>
+          <div class="tags small">
+            <span>R</span><span>tidyverse</span><span>ggplot2</span><span>forecast</span>
+          </div>
+          <a class="project-link" href="https://github.com/NichoFedlim/HK-Job-Market-Indicator" target="_blank" rel="noopener">View on GitHub →</a>
+        </article>
+
+        <article class="project" data-tags="web">
+          <div class="project-head">
+            <h3>To-Do List</h3>
+            <span class="project-role">HTML · CSS · JavaScript</span>
+          </div>
+          <p>
+            An interactive task manager with add / complete / delete functionality
+            and localStorage persistence so tasks survive refreshes. Built to
+            practice DOM manipulation and event handling.
+          </p>
+          <div class="tags small">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>localStorage</span>
+          </div>
+          <a class="project-link" href="/todo-list/">View Live →</a>
+        </article>
+
+        <article class="project" data-tags="web">
+          <div class="project-head">
+            <h3>Simple Calculator</h3>
+            <span class="project-role">HTML · CSS · JavaScript</span>
+          </div>
+          <p>
+            A responsive calculator with a clean grid layout. Handles basic
+            arithmetic with proper error handling and keyboard-friendly styling.
+          </p>
+          <div class="tags small">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+          </div>
+          <a class="project-link" href="/calculator/">View Live →</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== Experience ===== -->
+    <section id="experience" class="section reveal">
+      <h2 class="section-title"><span>04.</span> Education &amp; Experience</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>The University of Hong Kong</h3>
+            <p class="timeline-meta">Bachelor of Engineering — Data Science · 2023 – 2027</p>
+            <p>
+              Relevant coursework in data structures, algorithms, probability,
+              statistics, and machine learning. Active in group software projects
+              spanning games, simulations, and data analysis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="section reveal contact">
+      <h2 class="section-title center"><span>05.</span> Get In Touch</h2>
+      <p class="contact-desc">
+        I'm always open to interesting projects, collaborations, or just a chat.
+        My inbox is open — I'll try my best to get back to you.
+      </p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:nicholasfedlim@gmail.com">Say Hello</a>
+        <a class="btn btn-ghost" href="https://github.com/NichoFedlim" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Designed &amp; built by Nicholas Fedlim · © <span id="year"></span></p>
+    <p class="footer-sub">Built with plain HTML, CSS &amp; JavaScript.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

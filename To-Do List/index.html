@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple To-Do List</title>
+    <title>To-Do List — Nicholas Fedlim</title>
     <link rel="stylesheet" href="todoList.css">
 </head>
 <body>
+    <a class="back" href="../">← Back to portfolio</a>
+
     <div class="todo-container">
         <h1>To-Do List</h1>
         <div class="input-section">
-            <input type="text" id="taskInput" placeholder="Enter a task...">
+            <input type="text" id="taskInput" placeholder="Enter a task..." autocomplete="off">
             <button id="addTaskBtn" onclick="addTask()">Add</button>
         </div>
         <ul class="task-list" id="taskList"></ul>
+        <p class="task-count" id="taskCount"></p>
     </div>
 
     <script src="todoList.js"></script>

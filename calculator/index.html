@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator — Nicholas Fedlim</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #0f172a;
+            font-family: 'Inter', Arial, sans-serif;
+            color: #e2e8f0;
+        }
+        .back {
+            position: absolute;
+            top: 1.25rem; left: 1.25rem;
+            color: #64ffda;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .85rem;
+            text-decoration: none;
+        }
+        .back:hover { text-decoration: underline; }
+
+        .calculator {
+            background-color: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,.6);
+            width: 320px;
+            border: 1px solid #334155;
+        }
+        .display {
+            width: 100%;
+            height: 60px;
+            background-color: #0f172a;
+            color: #fff;
+            text-align: right;
+            padding: 10px 15px;
+            font-size: 26px;
+            font-family: 'JetBrains Mono', monospace;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+        button {
+            padding: 18px 0;
+            font-size: 18px;
+            font-family: 'JetBrains Mono', monospace;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #334155;
+            color: #e2e8f0;
+            transition: background-color .2s, transform .05s;
+        }
+        button:hover { background-color: #475569; }
+        button:active { transform: scale(.96); }
+
+        .operator { background-color: #ff9500; color: #fff; }
+        .operator:hover { background-color: #e68a00; }
+
+        .equals { background-color: #64ffda; color: #0f172a; font-weight: 700; }
+        .equals:hover { background-color: #4de0c0; }
+
+        .clear { background-color: #f44336; color: #fff; }
+        .clear:hover { background-color: #da3c31; }
+
+        .span-2 { grid-column: span 2; }
+    </style>
+</head>
+<body>
+    <a class="back" href="../">← Back to portfolio</a>
+
+    <div class="calculator">
+        <input type="text" class="display" id="display" readonly value="0">
+        <div class="buttons">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+
+            <button class="operator" onclick="appendToDisplay('/')">÷</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+
+            <button class="operator" onclick="appendToDisplay('*')">×</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+
+            <button class="operator" onclick="appendToDisplay('-')">−</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button class="operator" onclick="appendToDisplay('+')">+</button>
+
+            <button class="equals span-2" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display');
+
+        function appendToDisplay(value) {
+            if (display.value === '0' && value !== '.') {
+                display.value = value;
+            } else {
+                display.value += value;
+            }
+        }
+
+        function clearDisplay() {
+            display.value = '0';
+        }
+
+        /* Safe expression evaluator — replaces eval().
+           Supports + - * / . and parentheses, with proper operator precedence. */
+        function safeEval(expr) {
+            // Sanitize: only allow digits, operators, decimals, parens, whitespace
+            if (!/^[\d+\-*/.()\s]+$/.test(expr)) throw new Error('Invalid');
+
+            // Tokenize
+            const tokens = expr.match(/\d+\.?\d*|\.\d+|[+\-*/()]/g);
+            if (!tokens) throw new Error('Invalid');
+
+            let pos = 0;
+
+            function peek() { return tokens[pos]; }
+            function next() { return tokens[pos++]; }
+
+            // expr := term (('+'|'-') term)*
+            function parseExpr() {
+                let left = parseTerm();
+                while (peek() === '+' || peek() === '-') {
+                    const op = next();
+                    const right = parseTerm();
+                    left = op === '+' ? left + right : left - right;
+                }
+                return left;
+            }
+
+            // term := factor (('*'|'/') factor)*
+            function parseTerm() {
+                let left = parseFactor();
+                while (peek() === '*' || peek() === '/') {
+                    const op = next();
+                    const right = parseFactor();
+                    if (op === '/' && right === 0) throw new Error('Div by 0');
+                    left = op === '*' ? left * right : left / right;
+                }
+                return left;
+            }
+
+            // factor := ('+'|'-')? number | '(' expr ')'
+            function parseFactor() {
+                const t = peek();
+                if (t === '+') { next(); return parseFactor(); }
+                if (t === '-') { next(); return -parseFactor(); }
+                if (t === '(') {
+                    next();
+                    const val = parseExpr();
+                    if (next() !== ')') throw new Error('Mismatched )');
+                    return val;
+                }
+                const num = parseFloat(next());
+                if (isNaN(num)) throw new Error('Invalid number');
+                return num;
+            }
+
+            const result = parseExpr();
+            if (pos !== tokens.length) throw new Error('Trailing tokens');
+            return result;
+        }
+
+        function calculate() {
+            try {
+                const result = safeEval(display.value);
+                display.value = Number.isFinite(result)
+                    ? parseFloat(result.toFixed(10)).toString()
+                    : 'Error';
+            } catch (e) {
+                display.value = 'Error';
+            }
+        }
+
+        /* Keyboard support */
+        document.addEventListener('keydown', (e) => {
+            const k = e.key;
+            if (/^[0-9.]$/.test(k)) appendToDisplay(k);
+            else if (['+', '-', '*', '/'].includes(k)) appendToDisplay(k);
+            else if (k === 'Enter' || k === '=') { e.preventDefault(); calculate(); }
+            else if (k === 'Escape' || k.toLowerCase() === 'c') clearDisplay();
+            else if (k === 'Backspace') {
+                display.value = display.value.length > 1
+                    ? display.value.slice(0, -1)
+                    : '0';
+            }
+        });
+    </script>
+</body>
+</html>
